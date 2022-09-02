@@ -15,10 +15,12 @@
 - The data of each student is stored respectively with his student ID number. 
 - If the student returns the book after the 'Date of Return' has been crossed, the programme recognizes this.
 - The programme automatically calculates the amount to be paid as penalty if the 'Date of Return' has been crossed. 
+- This webpage stores information locally on the user's machine only. The same data is not available anywhere else or on anyone else's machine. Even though I'm the author, I cannot see the data stored of this webpage by any other user. 
 ## Some points to note: 
 - All fields except the 'Date of Issue' are mandatory.
 - Enter all the dates in the format of dd/mm/yyyy (07/09/2022 instead of 7/9/22). This is necessary as otherwise the programme will fail to work correctly.
 - This webpage is not based on a database and stores all the data on local cache. If you wish to use this webpage, clearing your cache on your browser will delete all the data.
+- This webpage stores information locally on the user's machine only. The same data is not available anywhere else or on anyone else's machine. This means that you cannot access the same data if you wish to, on some other machine. (subject to changes on future developments)
 ## From a technical perspective:
 - The design of this page is still being worked on.
 - I have absolutely no clue on how to work on databases and thus am using windows local storage to store the data. 
