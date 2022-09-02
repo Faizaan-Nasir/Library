@@ -59,10 +59,22 @@
             margin-top: 50px;
             margin-bottom: 50px;
         }
+
+        .penalty {
+            font-family: 'Lato', sans-serif;
+            font-size: 20px;
+            margin-top: 16px;
+        }
+
+        .verified {
+            font-family: 'Lato', sans-serif;
+            font-size: 20px;
+            margin-top: 16px;
+        }
     </style>
 </head>
 
-<body>
+<body onload="displaydate()">
     <script src="./scripts/app.js"></script>
 
     <div class="heading">
@@ -79,15 +91,16 @@
             Book Issued: <textarea id="book_issued" cols="16" rows="1" placeholder="Book Issued"></textarea>
         </div><br>
         <div class="text">
-            Date of Issue: <textarea id="date_of_issue" cols="16" rows="1" placeholder="Date of Issue"></textarea>
+            Date of Issue: <textarea id="date_of_issue" cols="16" rows="1" placeholder="dd/mm/yyyy"></textarea>
         </div><br>
         <div class="text">
-            Date of Return: <textarea id="date_of_return" cols="16" rows="1" placeholder="Date of Return"></textarea>
+            Date of Return: <textarea id="date_of_return" cols="16" rows="1" placeholder="dd/mm/yyyy"></textarea>
         </div>
         <br><button onclick="save()">Submit</button>
         <button onclick="request()">Fetch</button>
         <button onclick="cleardata()">Clear Data</button>
-        <div id="verified"></div>
+        <div id="verified" class="verified"></div>
+        <div id="penalty" class="penalty"></div>
     </main>
 </body>
 

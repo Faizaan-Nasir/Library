@@ -1,7 +1,12 @@
+// fetching today's date
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0');
 var yyyy = today.getFullYear();
+var date = dd + '/' + mm + '/' + yyyy
+function displaydate() {
+    document.getElementById("date_of_issue").innerHTML = date
+}
 function save() {
     localStorage.setItem('name' + document.getElementById("sno").value, document.getElementById("name").value)
     localStorage.setItem('book_issued' + document.getElementById("sno").value, document.getElementById("book_issued").value)
@@ -10,6 +15,7 @@ function save() {
     document.getElementById("verified").innerHTML = "Data Submitted Sucessfully"
     setTimeout(function reload() { location.reload() }, 3000)
 }
+// requests for info and decides whether the student has a fine or not
 function request() {
     document.getElementById("name").innerHTML = localStorage.getItem('name' + document.getElementById("sno").value)
     document.getElementById("book_issued").innerHTML = localStorage.getItem('book_issued' + document.getElementById("sno").value)
@@ -20,18 +26,19 @@ function request() {
     mmr = `${DOR.charAt(3)}` + `${DOR.charAt(4)}`
     ddr = `${DOR.charAt(0)}` + `${DOR.charAt(1)}`
     if (yyyy > yyyyr) {
-        alert("you have a fine")
+        document.getElementById("penalty").innerHTML = 'The Student has a Fine'
     }
     else if (mm > mmr) {
-        alert("you have a fine")
+        document.getElementById("penalty").innerHTML = 'The Student has a Fine'
     }
     else if (dd > ddr) {
-        alert("you have a fine")
+        document.getElementById("penalty").innerHTML = 'The Student has a Fine'
     }
     else {
 
     }
 }
+// clears data:
 function cleardata() {
     localStorage.removeItem('book_issued' + document.getElementById("sno").value)
     localStorage.removeItem('date_of_issue' + document.getElementById("sno").value)
