@@ -10,7 +10,7 @@ function search() {
             request()
         }
         else {
-            alert("such book does not exist in database")
+            alert("Such a book is not issued by any student")
         }
     }
     else {
