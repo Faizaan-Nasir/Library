@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index</title>
     <LINK href="./css/stylesheet.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Nunito Sans' rel='stylesheet'>
+
     <style>
         body {
             background-image: url("./src/bg.png");
@@ -25,39 +27,60 @@
             class="search"></textarea><button onclick="search()" class="s-btn"><img src="./src/search.png"
                 class="s-btn-img"></button>
     </div>
-
+    <br><br><br>
     <main>
         <!-- labels and fields -->
         <form>
-            <div class="text">
-                Student ID Number<span style="color: red;">* </span>: <textarea id="sno" cols="16" rows="1"
-                    placeholder="Enter SNo." class="textarea" required></textarea>
-            </div><br>
-            <div class="text">
-                Name of Student<span style="color: red;">* </span>: <textarea id="name" cols="16" rows="1"
-                    placeholder="Enter Name" class="textarea" required></textarea>
-            </div><br>
-            <div class="text">
-                Book Issued<span style="color: red;">* </span>: <textarea id="book_issued" cols="16" rows="1"
-                    placeholder="Book Issued" class="textarea" required></textarea>
-            </div><br>
-            <div class="text">
-                Date of Issue: <textarea id="date_of_issue" cols="16" rows="1" placeholder="dd/mm/yyyy"
-                    class="textarea"></textarea>
-            </div><br>
-            <div class="text">
-                Date of Return<span style="color: red;">* </span>: <textarea id="date_of_return" cols="16" rows="1"
-                    placeholder="dd/mm/yyyy" class="textarea" required></textarea>
-            </div>
-            <br>
-            <!-- buttons -->
-            <button onclick="save()">Submit</button>
-            <button onclick="request()">Fetch</button>
-            <button onclick="cleardata()">Clear Data</button>
-        </form>
-        <!-- display divs -->
-        <div id="verified" class="verified"></div>
-        <div id="penalty" class="penalty"></div>
+            <table style="margin-bottom:30px">
+                <tr>
+                    <td>Student ID Number<span style="color: red;">* </span>:</td>
+                    <td> Name of Student<span style="color: red;">* </span>:</td>
+                    <td> Book Issued<span style="color: red;">* </span>:</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea id="sno" cols="16" rows="1" placeholder="Enter SNo." class="textarea"
+                            required></textarea>
+                    </td>
+                    <td>
+                        <textarea id="name" cols="16" rows="1" placeholder="Enter Name" class="textarea"
+                            required></textarea>
+                    </td>
+                    <td>
+                        <textarea id="book_issued" cols="16" rows="1" placeholder="Book Issued" class="textarea"
+                            required></textarea>
+                    </td>
+                    <td> <button onclick="cleardata()">Clear Data</button></td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>Date of Issue:</td>
+                    <td> Date of Return<span style="color: red;">* </span>:</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea id="date_of_issue" cols="16" rows="1" placeholder="dd/mm/yyyy"
+                            class="textarea"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="date_of_return" cols="16" rows="1" placeholder="dd/mm/yyyy" class="textarea"
+                            required></textarea>
+                    </td>
+                    <td>
+                        <button onclick="save()">Submit</button>
+                    </td>
+                    <td>
+                        <button onclick="request()">Fetch</button>
+                    </td>
+                </tr>
+            </table>
+
+            <div id="verified" class="verified"></div>
+            <div id="penalty" class="penalty"></div>
     </main>
 </body>
 

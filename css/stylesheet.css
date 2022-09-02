@@ -1,28 +1,39 @@
-main {
-    margin-left: 5%;
-    margin-top: 5%;
+body {
+    margin: 0%;
+}
+
+table {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    font-size: 19px;
+    font-family: 'Nunito Sans';
+    font-weight: bold;
+}
+
+td {
+    width: 25%;
 }
 
 .textarea {
     resize: none;
-    font-size: 19.5px;
-    font-family: 'Lato', sans-serif;
+    font-size: 19px;
+    font-family: 'Nunito Sans';
     border-radius: 4px;
-    height: 25px;
+    height: 29px;
     padding-top: 5px;
     vertical-align: middle;
-    width: 190px;
-    margin-left: 3%;
-    padding-left: 10px;
+    width: 80%;
+    padding-left: 12px;
+
 }
 
 button {
-    margin-top: 25px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nunito Sans';
     font-size: 16px;
     border-radius: 5px;
     height: 40px;
-    width: 120px;
+    width: 85%;
     background-color: aliceblue;
     margin-right: 2%;
 }
@@ -34,7 +45,7 @@ button:hover {
 .s-btn {
     margin-top: 0px;
     border: none;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nunito Sans';
     font-size: 20px;
     border-radius: 5px;
     height: 40px;
@@ -53,13 +64,20 @@ button:hover {
 }
 
 .text {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nunito Sans';
     font-size: 18px;
     font-weight: bold;
+    margin-right: 5%;
+    margin-left: 5%;
+    width: 190px;
+}
+
+.content-table {
+    text-align: center;
 }
 
 .heading {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nunito Sans';
     font-size: 32px;
     text-align: center;
     font-weight: bolder;
@@ -68,13 +86,13 @@ button:hover {
 }
 
 .penalty {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nunito Sans';
     font-size: 20px;
     margin-top: 16px;
 }
 
 .verified {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nunito Sans';
     font-size: 20px;
     margin-top: 16px;
 }
@@ -82,7 +100,7 @@ button:hover {
 .search {
     resize: none;
     font-size: 20px;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Nunito Sans';
     border-radius: 20px;
     height: 32px;
     padding-top: 10px;
