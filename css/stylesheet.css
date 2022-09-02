@@ -88,12 +88,14 @@ button:hover {
     font-family: 'Nunito Sans', sans-serif;
     font-size: 20px;
     margin-top: 16px;
+    text-align: center;
 }
 
 .verified {
     font-family: 'Nunito Sans', sans-serif;
     font-size: 20px;
     margin-top: 16px;
+    text-align: center;
 }
 
 .search {
@@ -122,10 +124,10 @@ button:hover {
     height: 200px;
 }
 
-#submit {
+.submit {
     background-color: #8FBBAF;
 }
 
-#submit:hover {
+.submit:hover {
     background-color: #78ab9d;
 }

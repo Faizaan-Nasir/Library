@@ -51,6 +51,7 @@ function save() {
 }
 // requests for info and decides whether the student has a fine or not:
 function request() {
+    document.getElementById("penalty").innerHTML = ""
     document.getElementById("name").innerHTML = localStorage.getItem('name' + document.getElementById("sno").value)
     document.getElementById("book_issued").innerHTML = localStorage.getItem('book_issued' + document.getElementById("sno").value)
     document.getElementById("date_of_issue").innerHTML = localStorage.getItem('date_of_issue' + document.getElementById("sno").value)
@@ -71,9 +72,6 @@ function request() {
     }
     else if (dd > ddr) {
         document.getElementById("penalty").innerHTML = 'The student has a fine AED ' + penalty
-    }
-    else {
-
     }
 }
 // clears data:

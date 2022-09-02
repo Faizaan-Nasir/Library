@@ -33,57 +33,57 @@
     <br><br><br>
     <main>
         <!-- labels and fields -->
-        <form>
-            <table style="margin-bottom:30px">
-                <tr>
-                    <td>Student ID Number: <span style="color: red;">* </span></td>
-                    <td> Name of Student: <span style="color: red;">* </span></td>
-                    <td> Book Issued: <span style="color: red;">* </span></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                        <textarea id="sno" cols="16" rows="1" placeholder="Enter SNo." class="textarea"
-                            required></textarea>
-                    </td>
-                    <td>
-                        <textarea id="name" cols="16" rows="1" placeholder="Enter Name" class="textarea"
-                            required></textarea>
-                    </td>
-                    <td>
-                        <textarea id="book_issued" cols="16" rows="1" placeholder="Book Issued" class="textarea"
-                            required></textarea>
-                    </td>
-                    <td> <button onclick="cleardata()">CLEAR DATA</button></td>
-                </tr>
-            </table>
-            <table>
-                <tr>
-                    <td>Date of Issue:</td>
-                    <td> Date of Return: <span style="color: red;">* </span></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>
-                        <textarea id="date_of_issue" cols="16" rows="1" placeholder="dd/mm/yyyy"
-                            class="textarea"></textarea>
-                    </td>
-                    <td>
-                        <textarea id="date_of_return" cols="16" rows="1" placeholder="dd/mm/yyyy" class="textarea"
-                            required></textarea>
-                    </td>
-                    <td>
-                        <button onclick="save()" id="submit">SUBMIT DATA</button>
-                    </td>
-                    <td>
-                        <button onclick="request()">FETCH DATA</button>
-                    </td>
-                </tr>
-            </table>
+        <table style="margin-bottom:30px">
+            <tr>
+                <td>Student ID Number: <span style="color: red;">* </span></td>
+                <td> Name of Student: <span style="color: red;">* </span></td>
+                <td> Book Issued: <span style="color: red;">* </span></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea id="sno" cols="16" rows="1" placeholder="Enter SNo." class="textarea" required></textarea>
+                </td>
+                <td>
+                    <textarea id="name" cols="16" rows="1" placeholder="Enter Name" class="textarea"
+                        required></textarea>
+                </td>
+                <td>
+                    <textarea id="book_issued" cols="16" rows="1" placeholder="Book Issued" class="textarea"
+                        required></textarea>
+                </td>
+                <td> <button onclick="cleardata()">CLEAR DATA</button></td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>Date of Issue:</td>
+                <td> Date of Return: <span style="color: red;">* </span></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea id="date_of_issue" cols="16" rows="1" placeholder="dd/mm/yyyy"
+                        class="textarea"></textarea>
+                </td>
+                <td>
+                    <textarea id="date_of_return" cols="16" rows="1" placeholder="dd/mm/yyyy" class="textarea"
+                        required></textarea>
+                </td>
+                <td>
+                    <button onclick="save()" class="submit">SUBMIT DATA</button>
+                </td>
+                <td>
+                    <button onclick="request()">FETCH DATA</button>
+                </td>
+            </tr>
+        </table>
 
-            <div id="verified" class="verified"></div>
-            <div id="penalty" class="penalty"></div>
+        <div id="verified" class="verified"></div>
+        <div id="penalty" class="penalty"></div>
+        <br>
+        <br>
     </main>
 </body>
 
