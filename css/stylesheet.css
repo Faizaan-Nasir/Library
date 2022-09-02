@@ -5,9 +5,10 @@ body {
 table {
     margin-left: 10%;
     margin-right: 10%;
+    margin-top: 3%;
     width: 80%;
     font-size: 19px;
-    font-family: 'Nunito Sans';
+    font-family: 'Nunito Sans', sans-serif;
     font-weight: bold;
 }
 
@@ -17,38 +18,35 @@ td {
 
 .textarea {
     resize: none;
-    font-size: 19px;
-    font-family: 'Nunito Sans';
+    font-size: 15px;
+    font-family: 'Nunito Sans', sans-serif;
     border-radius: 4px;
     height: 29px;
-    padding-top: 5px;
+    padding-top: 15px;
     vertical-align: middle;
     width: 80%;
     padding-left: 12px;
-
+    margin-top: 0.5em;
 }
 
 button {
-    font-family: 'Nunito Sans';
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 16px;
     border-radius: 5px;
-    height: 40px;
+    height: 46px;
     width: 85%;
-    background-color: aliceblue;
+    background-color: #FBEBA5;
     margin-right: 2%;
 }
 
 button:hover {
-    background-color: beige;
+    background-color: #e5d17a;
 }
 
 .s-btn {
-    margin-top: 0px;
     border: none;
-    font-family: 'Nunito Sans';
     font-size: 20px;
-    border-radius: 5px;
-    height: 40px;
+    border-radius: 10px;
     width: 100px;
     background-color: transparent;
     margin-right: 0%;
@@ -61,10 +59,11 @@ button:hover {
 
 .s-btn-img {
     width: 20px;
+    padding: 12px;
 }
 
 .text {
-    font-family: 'Nunito Sans';
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 18px;
     font-weight: bold;
     margin-right: 5%;
@@ -77,7 +76,7 @@ button:hover {
 }
 
 .heading {
-    font-family: 'Nunito Sans';
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 32px;
     text-align: center;
     font-weight: bolder;
@@ -86,27 +85,27 @@ button:hover {
 }
 
 .penalty {
-    font-family: 'Nunito Sans';
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 20px;
     margin-top: 16px;
 }
 
 .verified {
-    font-family: 'Nunito Sans';
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 20px;
     margin-top: 16px;
 }
 
 .search {
     resize: none;
-    font-size: 20px;
-    font-family: 'Nunito Sans';
-    border-radius: 20px;
+    font-size: 18px;
+    font-family: 'Nunito Sans', sans-serif;
+    border-radius: 40px;
     height: 32px;
     padding-top: 10px;
     vertical-align: middle;
     width: 50%;
-    padding-left: 10px;
+    padding-left: 20px;
     margin-right: -100px;
 }
 
@@ -121,4 +120,12 @@ button:hover {
 
 .img {
     height: 200px;
+}
+
+#submit {
+    background-color: #8FBBAF;
+}
+
+#submit:hover {
+    background-color: #78ab9d;
 }

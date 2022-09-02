@@ -23,9 +23,11 @@
         School Library Issuing System
     </div>
     <!-- search -->
-    <div class="search_bar"><textarea id="search" cols="10000" rows="1" placeholder="Search for Students and Books"
-            class="search"></textarea><button onclick="search()" class="s-btn"><img src="./src/search.png"
-                class="s-btn-img"></button>
+    <div class="search_bar">
+        <textarea id="search" cols="10000" rows="1" placeholder="Search for Students and Books"
+            class="search"></textarea>
+        <button onclick="search()" class="s-btn"><img src="./src/search.png" class="s-btn-img">
+        </button>
     </div>
     <br><br><br>
     <main>
@@ -33,9 +35,9 @@
         <form>
             <table style="margin-bottom:30px">
                 <tr>
-                    <td>Student ID Number<span style="color: red;">* </span>:</td>
-                    <td> Name of Student<span style="color: red;">* </span>:</td>
-                    <td> Book Issued<span style="color: red;">* </span>:</td>
+                    <td>Student ID Number: <span style="color: red;">* </span></td>
+                    <td> Name of Student: <span style="color: red;">* </span></td>
+                    <td> Book Issued: <span style="color: red;">* </span></td>
                     <td></td>
                 </tr>
                 <tr>
@@ -51,13 +53,13 @@
                         <textarea id="book_issued" cols="16" rows="1" placeholder="Book Issued" class="textarea"
                             required></textarea>
                     </td>
-                    <td> <button onclick="cleardata()">Clear Data</button></td>
+                    <td> <button onclick="cleardata()">CLEAR DATA</button></td>
                 </tr>
             </table>
             <table>
                 <tr>
                     <td>Date of Issue:</td>
-                    <td> Date of Return<span style="color: red;">* </span>:</td>
+                    <td> Date of Return: <span style="color: red;">* </span></td>
                     <td></td>
                     <td></td>
                 </tr>
@@ -71,10 +73,10 @@
                             required></textarea>
                     </td>
                     <td>
-                        <button onclick="save()">Submit</button>
+                        <button onclick="save()" id="submit">SUBMIT DATA</button>
                     </td>
                     <td>
-                        <button onclick="request()">Fetch</button>
+                        <button onclick="request()">FETCH DATA</button>
                     </td>
                 </tr>
             </table>
