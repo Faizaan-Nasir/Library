@@ -1,5 +1,4 @@
-// fetching today's date:
-
+// filter for search bar
 function search() {
     let s = document.getElementById("search").value
     x = `${Number(s)}`
@@ -18,6 +17,7 @@ function search() {
         request()
     }
 }
+// fetching today's date:
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
 var mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -28,14 +28,17 @@ function displaydate() {
     document.getElementById("date_of_issue").innerHTML = date
 }
 function save() {
+    // checking if sno is a number
     if (`${Number(document.getElementById("sno").value)}` == 'NaN') {
-        alert("Student ID Number field must be a number. Cannot run the function")
+        alert("Student ID Number field must be a number. Cannot run the function.")
     }
     else {
+        // checking if any field is blank
         if (`${document.getElementById("name").value}` == '' || `${document.getElementById("book_issued").value}` == '' || `${document.getElementById("sno").value}` == '' || `${document.getElementById("date_of_return").value}` == '') {
             alert("Necessary field(s) is left blank, please fill out the field(s) before submitting.")
         }
         else {
+            // saving all data
             localStorage.setItem('name' + document.getElementById("sno").value, document.getElementById("name").value)
             localStorage.setItem('book_issued' + document.getElementById("sno").value, document.getElementById("book_issued").value)
             localStorage.setItem('sno' + document.getElementById("book_issued").value, document.getElementById("sno").value)
