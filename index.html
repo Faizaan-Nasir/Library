@@ -16,7 +16,7 @@
             margin-top: 5%;
         }
 
-        textarea {
+        .textarea {
             resize: none;
             font-size: 19.5px;
             font-family: 'Lato', sans-serif;
@@ -71,6 +71,22 @@
             font-size: 20px;
             margin-top: 16px;
         }
+
+        .search {
+            resize: none;
+            font-size: 20px;
+            font-family: 'Lato', sans-serif;
+            border-radius: 20px;
+            height: 32px;
+            padding-top: 10px;
+            vertical-align: middle;
+            width: 30%;
+            padding-left: 10px;
+        }
+
+        .search_bar {
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -80,25 +96,38 @@
     <div class="heading">
         School Library
     </div>
+    <!-- search -->
+    <div class="search_bar"><textarea id="search" cols="10000" rows="1" placeholder="Search for Students and Books"
+            class="search"></textarea><br><button onclick="search()">Search</button></div>
+
     <main>
+        <!-- labels and fields -->
         <div class="text">
-            Student ID Number: <textarea id="sno" cols="16" rows="1" placeholder="Enter SNo."></textarea>
+            Student ID Number: <textarea id="sno" cols="16" rows="1" placeholder="Enter SNo."
+                class="textarea"></textarea>
         </div><br>
         <div class="text">
-            Name of Student: <textarea id="name" cols="16" rows="1" placeholder="Enter Name"></textarea>
+            Name of Student: <textarea id="name" cols="16" rows="1" placeholder="Enter Name"
+                class="textarea"></textarea>
         </div><br>
         <div class="text">
-            Book Issued: <textarea id="book_issued" cols="16" rows="1" placeholder="Book Issued"></textarea>
+            Book Issued: <textarea id="book_issued" cols="16" rows="1" placeholder="Book Issued"
+                class="textarea"></textarea>
         </div><br>
         <div class="text">
-            Date of Issue: <textarea id="date_of_issue" cols="16" rows="1" placeholder="dd/mm/yyyy"></textarea>
+            Date of Issue: <textarea id="date_of_issue" cols="16" rows="1" placeholder="dd/mm/yyyy"
+                class="textarea"></textarea>
         </div><br>
         <div class="text">
-            Date of Return: <textarea id="date_of_return" cols="16" rows="1" placeholder="dd/mm/yyyy"></textarea>
+            Date of Return: <textarea id="date_of_return" cols="16" rows="1" placeholder="dd/mm/yyyy"
+                class="textarea"></textarea>
         </div>
-        <br><button onclick="save()">Submit</button>
+        <br>
+        <!-- buttons -->
+        <button onclick="save()">Submit</button>
         <button onclick="request()">Fetch</button>
         <button onclick="cleardata()">Clear Data</button>
+        <!-- display divs -->
         <div id="verified" class="verified"></div>
         <div id="penalty" class="penalty"></div>
     </main>
