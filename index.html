@@ -26,31 +26,33 @@
 
     <main>
         <!-- labels and fields -->
-        <div class="text">
-            Student ID Number<span style="color: red;">* </span>: <textarea id="sno" cols="16" rows="1"
-                placeholder="Enter SNo." class="textarea" required></textarea>
-        </div><br>
-        <div class="text">
-            Name of Student<span style="color: red;">* </span>: <textarea id="name" cols="16" rows="1"
-                placeholder="Enter Name" class="textarea" required></textarea>
-        </div><br>
-        <div class="text">
-            Book Issued<span style="color: red;">* </span>: <textarea id="book_issued" cols="16" rows="1"
-                placeholder="Book Issued" class="textarea" required></textarea>
-        </div><br>
-        <div class="text">
-            Date of Issue: <textarea id="date_of_issue" cols="16" rows="1" placeholder="dd/mm/yyyy"
-                class="textarea"></textarea>
-        </div><br>
-        <div class="text">
-            Date of Return<span style="color: red;">* </span>: <textarea id="date_of_return" cols="16" rows="1"
-                placeholder="dd/mm/yyyy" class="textarea" required></textarea>
-        </div>
-        <br>
-        <!-- buttons -->
-        <button onclick="save()">Submit</button>
-        <button onclick="request()">Fetch</button>
-        <button onclick="cleardata()">Clear Data</button>
+        <form>
+            <div class="text">
+                Student ID Number<span style="color: red;">* </span>: <textarea id="sno" cols="16" rows="1"
+                    placeholder="Enter SNo." class="textarea" required></textarea>
+            </div><br>
+            <div class="text">
+                Name of Student<span style="color: red;">* </span>: <textarea id="name" cols="16" rows="1"
+                    placeholder="Enter Name" class="textarea" required></textarea>
+            </div><br>
+            <div class="text">
+                Book Issued<span style="color: red;">* </span>: <textarea id="book_issued" cols="16" rows="1"
+                    placeholder="Book Issued" class="textarea" required></textarea>
+            </div><br>
+            <div class="text">
+                Date of Issue: <textarea id="date_of_issue" cols="16" rows="1" placeholder="dd/mm/yyyy"
+                    class="textarea"></textarea>
+            </div><br>
+            <div class="text">
+                Date of Return<span style="color: red;">* </span>: <textarea id="date_of_return" cols="16" rows="1"
+                    placeholder="dd/mm/yyyy" class="textarea" required></textarea>
+            </div>
+            <br>
+            <!-- buttons -->
+            <button onclick="save()">Submit</button>
+            <button onclick="request()">Fetch</button>
+            <button onclick="cleardata()">Clear Data</button>
+        </form>
         <!-- display divs -->
         <div id="verified" class="verified"></div>
         <div id="penalty" class="penalty"></div>

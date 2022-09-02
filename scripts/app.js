@@ -32,13 +32,18 @@ function save() {
         alert("Student ID Number field must be a number. Cannot run the function")
     }
     else {
-        localStorage.setItem('name' + document.getElementById("sno").value, document.getElementById("name").value)
-        localStorage.setItem('book_issued' + document.getElementById("sno").value, document.getElementById("book_issued").value)
-        localStorage.setItem('sno' + document.getElementById("book_issued").value, document.getElementById("sno").value)
-        localStorage.setItem('date_of_issue' + document.getElementById("sno").value, dd + '/' + mm + '/' + yyyy)
-        localStorage.setItem('date_of_return' + document.getElementById("sno").value, document.getElementById("date_of_return").value)
-        document.getElementById("verified").innerHTML = "Data Submitted Sucessfully"
-        setTimeout(function reload() { location.reload() }, 3000)
+        if (`${document.getElementById("name").value}` == '' || `${document.getElementById("book_issued").value}` == '' || `${document.getElementById("sno").value}` == '' || `${document.getElementById("date_of_return").value}` == '') {
+            alert("Necessary field(s) is left blank, please fill out the field(s) before submitting.")
+        }
+        else {
+            localStorage.setItem('name' + document.getElementById("sno").value, document.getElementById("name").value)
+            localStorage.setItem('book_issued' + document.getElementById("sno").value, document.getElementById("book_issued").value)
+            localStorage.setItem('sno' + document.getElementById("book_issued").value, document.getElementById("sno").value)
+            localStorage.setItem('date_of_issue' + document.getElementById("sno").value, dd + '/' + mm + '/' + yyyy)
+            localStorage.setItem('date_of_return' + document.getElementById("sno").value, document.getElementById("date_of_return").value)
+            document.getElementById("verified").innerHTML = "Data Submitted Sucessfully"
+            setTimeout(function reload() { location.reload() }, 3000)
+        }
     }
 }
 // requests for info and decides whether the student has a fine or not:
