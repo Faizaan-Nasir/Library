@@ -10,7 +10,7 @@ function search() {
             request()
         }
         else {
-            alert("Such a book is not issued by any student")
+            alert("Such a book is not issued by any student!")
         }
     }
     else {
