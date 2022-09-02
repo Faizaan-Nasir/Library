@@ -1,7 +1,7 @@
 # Library
 ## This is a webpage meant for book libraries which stores information of which book is taken by which student in a given school.
 ## This is how the webpage looks as of now:
-![image](https://user-images.githubusercontent.com/82143161/188107672-9229bc6e-9c76-4a3b-943d-3ebb442cd0d9.png)
+![image](https://user-images.githubusercontent.com/82143161/188219695-2d9741ce-cdba-4151-9b51-c3f2aa142b3f.png)
 ## Link to webpage: https://faizaan-nasir.github.io/Library/
 ## How to use this webpage:
 - Initially no data is stored and thus the user must first enter all the data in all the fields including the student ID number and the name. 
