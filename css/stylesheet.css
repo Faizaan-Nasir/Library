@@ -131,3 +131,17 @@ button:hover {
 .submit:hover {
     background-color: #78ab9d;
 }
+
+#info {
+    text-align: right;
+    margin-right: 3%;
+    margin-top: 3%;
+}
+
+#info-link {
+    background-color: rgb(133, 133, 255);
+    text-decoration: none;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
