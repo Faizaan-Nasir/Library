@@ -33,14 +33,25 @@ button {
     font-family: 'Nunito Sans', sans-serif;
     font-size: 16px;
     border-radius: 5px;
-    height: 46px;
+    height: 43px;
     width: 85%;
     background-color: #FBEBA5;
     margin-right: 2%;
+    margin-top: 0.5em;
+    border: 2px solid black;
+    box-sizing: border-box;
 }
 
 button:hover {
     background-color: #e5d17a;
+}
+
+.submit {
+    background-color: #8FBBAF;
+}
+
+.submit:hover {
+    background-color: #7da59a;
 }
 
 .s-btn {
@@ -122,14 +133,6 @@ button:hover {
 
 .img {
     height: 200px;
-}
-
-.submit {
-    background-color: #8FBBAF;
-}
-
-.submit:hover {
-    background-color: #78ab9d;
 }
 
 #info {
