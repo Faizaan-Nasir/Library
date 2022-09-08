@@ -162,7 +162,7 @@ button:hover {
     font-weight: bolder;
 }
 
-@media screen and (max-width: 980px) {
+@media screen and (max-aspect-ratio: 3/2) {
     main {
         display: none;
     }
