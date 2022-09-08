@@ -1,3 +1,7 @@
+main {
+    display: block;
+}
+
 body {
     margin: 0%;
 }
@@ -147,4 +151,23 @@ button:hover {
     color: white;
     border-radius: 10px;
     padding: 10px;
+}
+
+.error {
+    display: none;
+    font-family: 'Nunito Sans', sans-serif;
+    text-align: center;
+    margin-top: 35%;
+    font-size: 26px;
+    font-weight: bolder;
+}
+
+@media screen and (max-width: 980px) {
+    main {
+        display: none;
+    }
+
+    .error {
+        display: block;
+    }
 }
