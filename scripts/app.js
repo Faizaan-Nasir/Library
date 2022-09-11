@@ -1,4 +1,10 @@
-// filter for search bar
+// when fetch data is pressed
+function convert() {
+    document.getElementById("search").innerHTML = document.getElementById("sno").value
+    search()
+}
+
+// search bar (requests for data)
 function search() {
     let s = document.getElementById("search").value
 
@@ -21,6 +27,7 @@ function search() {
             }
         }
     }
+
     getData()
 
 }
@@ -35,34 +42,24 @@ function displaydate() {
     document.getElementById("date_of_issue").innerHTML = date
 }
 
-// requests for info and decides whether the student has a fine or not:
-function request() {
-    const api_url = "https://sheetdb.io/api/v1/qpwk686wb4g5z"
-    async function getData() {
-        const response = await fetch(api_url)
-        const data = await response.json()
-        const { sno, name, book_issued, date_of_return, date_of_issue } = data
-    }
-    getData()
+// here starts the code for penalty:
+// var DOR = localStorage.getItem('date_of_return' + document.getElementById("sno").value)
+// var yyyyr = `${DOR.charAt(6)}` + `${DOR.charAt(7)}` + `${DOR.charAt(8)}` + `${DOR.charAt(9)}`
+// var mmr = `${DOR.charAt(3)}` + `${DOR.charAt(4)}`
+// var ddr = `${DOR.charAt(0)}` + `${DOR.charAt(1)}`
+// var DOR_format = new Date(yyyyr + '-' + mmr + '-' + ddr)
+// var dif = (date_format - DOR_format) / (1000 * 60 * 60 * 24)
+// var penalty = dif * 0.5
+// if (yyyy > yyyyr) {
+//     document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
+// }
+// else if (mm > mmr) {
+//     document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
+// }
+// else if (dd > ddr) {
+//     document.getElementById("penalty").innerHTML = 'The student has a fine AED ' + penalty
+// }
 
-    // here starts the code for penalty:
-    var DOR = localStorage.getItem('date_of_return' + document.getElementById("sno").value)
-    var yyyyr = `${DOR.charAt(6)}` + `${DOR.charAt(7)}` + `${DOR.charAt(8)}` + `${DOR.charAt(9)}`
-    var mmr = `${DOR.charAt(3)}` + `${DOR.charAt(4)}`
-    var ddr = `${DOR.charAt(0)}` + `${DOR.charAt(1)}`
-    var DOR_format = new Date(yyyyr + '-' + mmr + '-' + ddr)
-    var dif = (date_format - DOR_format) / (1000 * 60 * 60 * 24)
-    var penalty = dif * 0.5
-    if (yyyy > yyyyr) {
-        document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
-    }
-    else if (mm > mmr) {
-        document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
-    }
-    else if (dd > ddr) {
-        document.getElementById("penalty").innerHTML = 'The student has a fine AED ' + penalty
-    }
-}
 // clears data:
 function cleardata() {
     if (confirm("Are you sure you want to clear data?") == true) {
