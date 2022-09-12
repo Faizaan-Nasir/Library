@@ -46,7 +46,7 @@
                     <td>Student ID Number: <span style="color: red;">* </span></td>
                     <td> Name of Student: <span style="color: red;">* </span></td>
                     <td> Book Issued: <span style="color: red;">* </span></td>
-                    <!-- <td></td> -->
+                    <td></td>
                 </tr>
                 <tr>
                     <td>
@@ -62,7 +62,7 @@
                             name="data[book_issued]"></textarea>
                     </td>
                     <td>
-                        <button type="button" onclick="cleardata()">CLEAR DATA</button>
+                        <button type="reset">CLEAR DATA</button>
                     </td>
                 </tr>
             </table>
@@ -109,10 +109,57 @@
             }).then(
                 response => response.json()
             ).then((html) => {
-                // you can put any JS code here
-                alert('success')
+                document.getElementById("verified").innerHTML = "Data Submitted Successfully"
             });
         });
+
+        form.addEventListener("reset", e => {
+            e.preventDefault();
+            const api_url = "https://sheetdb.io/api/v1/qpwk686wb4g5z"
+            async function getData() {
+                const response = await fetch(api_url)
+                const data = await response.json()
+                let sno = document.getElementById("sno").value
+                let name = document.getElementById("name").value
+                for (var i = 0; i < data.length; ++i) {
+                    if (data[i]['sno'] === `${sno}`) {
+                        console.log(data[i]['book_issued'])
+                        fetch(form.action, {
+                            method: "PUT",
+                            body: JSON.stringify({
+                                sno: `${sno}`,
+                                name: `${name}`,
+                                book_issued: "",
+                                date_of_issue: "",
+                                date_of_return: "",
+                            }),
+                        }).then(
+                            response => response.json()
+                        ).then((html) => {
+                            document.getElementById("verified").innerHTML = "Data Erased Successfully"
+                        });
+                    }
+                }
+            }
+            getData()
+
+
+
+            // if (confirm("Are you sure you want to clear data?") == true) {
+            //     document.getElementById("book_issued").innerHTML = ""
+            //     document.getElementById("date_of_return").innerHTML = ""
+            //     document.getElementById("date_of_issue").innerHTML = ""
+            //     fetch(form.action, {
+            //         method: "POST",
+            //         body: new FormData(document.getElementById("sheetdb-form")),
+            //     }).then(
+            //         response => response.json()
+            //     ).then((html) => {
+            //         document.getElementById("verified").innerHTML = "Data Erased Successfully"
+            //     });
+            // }
+        });
+
     </script>
 </body>
 
