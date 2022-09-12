@@ -3,6 +3,8 @@ function convert() {
     document.getElementById("search").innerHTML = document.getElementById("sno").value
     search()
 }
+
+
 // fetching today's date:
 var today = new Date();
 var dd = String(today.getDate()).padStart(2, '0');
@@ -14,20 +16,24 @@ function displaydate() {
     document.getElementById("date_of_issue").innerHTML = date
 }
 
+
 // search bar (requests for data)
 function search() {
     let s = document.getElementById("search").value
     const api_url = "https://sheetdb.io/api/v1/qpwk686wb4g5z"
+    // declaring a to check if data exists or not
+    let a = 'undefined'
     async function getData() {
         const response = await fetch(api_url)
         const data = await response.json()
-        console.log(data)
+        // all data is now stored in var data
         let x = data.length
         for (i = 0; i < x; i++) {
             let lib = data[i]
+            // checking under each possible value of i, if any of the objects in data matches the sno, name or book entered by user.
+            // if it does then print it, and store value of i to a
             if (lib['sno'] === `${s}`) {
-                const a = i
-                console.log(a)
+                a = i
                 document.getElementById("sno").innerHTML = lib['sno']
                 document.getElementById("name").innerHTML = lib['name']
                 document.getElementById("book_issued").innerHTML = lib['book_issued']
@@ -54,8 +60,7 @@ function search() {
                 }
             }
             else if (lib['name'] === `${s}`) {
-                const a = i
-                console.log(a)
+                a = i
                 document.getElementById("sno").innerHTML = lib['sno']
                 document.getElementById("name").innerHTML = lib['name']
                 document.getElementById("book_issued").innerHTML = lib['book_issued']
@@ -82,8 +87,7 @@ function search() {
                 }
             }
             else if (lib['book_issued'] === `${s}`) {
-                const a = i
-                console.log(a)
+                a = i
                 document.getElementById("sno").innerHTML = lib['sno']
                 document.getElementById("name").innerHTML = lib['name']
                 document.getElementById("book_issued").innerHTML = lib['book_issued']
@@ -108,22 +112,23 @@ function search() {
                 else {
                     document.getElementById("penalty").innerHTML = ""
                 }
-
             }
-
         }
-
+        if (a == 'undefined') {
+            document.getElementById("penalty").innerHTML = "The Student ID or the Name of Student or the Book does not exist in the Database."
+        }
+        document.getElementById("verified").innerHTML = ""
     }
-
     getData()
-
-
 }
+
+
 // Submit
 var form = document.getElementById("sheetdb-form");
 form.addEventListener("submit", (e) => {
     e.preventDefault();
     async function getData() {
+        document.getElementById("verified").innerHTML = ""
         const api_url = "https://sheetdb.io/api/v1/qpwk686wb4g5z"
         const response = await fetch(api_url)
         const data = await response.json()
@@ -135,6 +140,7 @@ form.addEventListener("submit", (e) => {
                 present = true
             }
         }
+        // checks if the sno entered exists in database or not if it does, then update, else add a new row
         if (present == true) {
             let update_url = `https://sheetdb.io/api/v1/qpwk686wb4g5z/sno/${sno}`;
             fetch(update_url, {
@@ -158,7 +164,7 @@ form.addEventListener("submit", (e) => {
                         "verified"
                     ).innerHTML = "Data Updated Successfully";
                 })
-                .catch((err) => alert("Error occured"));
+                .catch((err) => alert("Error occured, contact the devs through GitHub."));
 
         }
         else {
@@ -184,6 +190,7 @@ form.addEventListener("reset", (e) => {
     async function reset() {
         const response = await fetch(api_url);
         const data = await response.json();
+        document.getElementById("verified").innerHTML = ""
         let sno = document.getElementById("sno").value;
         let name = document.getElementById("name").value;
         // loop to find the 'i' such that data[i]["sno"]= the data entered by user as sno
@@ -210,9 +217,7 @@ form.addEventListener("reset", (e) => {
                 })
                     .then((response) => response.json())
                     .then((html) => {
-                        document.getElementById(
-                            "verified"
-                        ).innerHTML = "Data Erased Successfully";
+                        document.getElementById("verified").innerHTML = "Data Erased Successfully";
                     })
                     .catch((err) => alert("Error occured"));
             }
