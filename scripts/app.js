@@ -33,6 +33,25 @@ function search() {
                 document.getElementById("book_issued").innerHTML = lib['book_issued']
                 document.getElementById("date_of_issue").innerHTML = lib['date_of_issue']
                 document.getElementById("date_of_return").innerHTML = lib['date_of_return']
+                var DOR = data[i]["date_of_return"]
+                var yyyyr = `${DOR.charAt(6)}` + `${DOR.charAt(7)}` + `${DOR.charAt(8)}` + `${DOR.charAt(9)}`
+                var mmr = `${DOR.charAt(3)}` + `${DOR.charAt(4)}`
+                var ddr = `${DOR.charAt(0)}` + `${DOR.charAt(1)}`
+                var DOR_format = new Date(yyyyr + '-' + mmr + '-' + ddr)
+                var dif = (date_format - DOR_format) / (1000 * 60 * 60 * 24)
+                var penalty = dif * 0.5
+                if (yyyy > yyyyr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
+                }
+                else if (mm > mmr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
+                }
+                else if (dd > ddr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine AED ' + penalty
+                }
+                else {
+                    document.getElementById("penalty").innerHTML = ""
+                }
             }
             else if (lib['name'] === `${s}`) {
                 const a = i
@@ -42,6 +61,25 @@ function search() {
                 document.getElementById("book_issued").innerHTML = lib['book_issued']
                 document.getElementById("date_of_issue").innerHTML = lib['date_of_issue']
                 document.getElementById("date_of_return").innerHTML = lib['date_of_return']
+                var DOR = data[i]["date_of_return"]
+                var yyyyr = `${DOR.charAt(6)}` + `${DOR.charAt(7)}` + `${DOR.charAt(8)}` + `${DOR.charAt(9)}`
+                var mmr = `${DOR.charAt(3)}` + `${DOR.charAt(4)}`
+                var ddr = `${DOR.charAt(0)}` + `${DOR.charAt(1)}`
+                var DOR_format = new Date(yyyyr + '-' + mmr + '-' + ddr)
+                var dif = (date_format - DOR_format) / (1000 * 60 * 60 * 24)
+                var penalty = dif * 0.5
+                if (yyyy > yyyyr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
+                }
+                else if (mm > mmr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
+                }
+                else if (dd > ddr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine AED ' + penalty
+                }
+                else {
+                    document.getElementById("penalty").innerHTML = ""
+                }
             }
             else if (lib['book_issued'] === `${s}`) {
                 const a = i
@@ -51,23 +89,28 @@ function search() {
                 document.getElementById("book_issued").innerHTML = lib['book_issued']
                 document.getElementById("date_of_issue").innerHTML = lib['date_of_issue']
                 document.getElementById("date_of_return").innerHTML = lib['date_of_return']
+                var DOR = data[i]["date_of_return"]
+                var yyyyr = `${DOR.charAt(6)}` + `${DOR.charAt(7)}` + `${DOR.charAt(8)}` + `${DOR.charAt(9)}`
+                var mmr = `${DOR.charAt(3)}` + `${DOR.charAt(4)}`
+                var ddr = `${DOR.charAt(0)}` + `${DOR.charAt(1)}`
+                var DOR_format = new Date(yyyyr + '-' + mmr + '-' + ddr)
+                var dif = (date_format - DOR_format) / (1000 * 60 * 60 * 24)
+                var penalty = dif * 0.5
+                if (yyyy > yyyyr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
+                }
+                else if (mm > mmr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
+                }
+                else if (dd > ddr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine AED ' + penalty
+                }
+                else {
+                    document.getElementById("penalty").innerHTML = ""
+                }
+
             }
-            var DOR = data[i]["date_of_return"]
-            var yyyyr = `${DOR.charAt(6)}` + `${DOR.charAt(7)}` + `${DOR.charAt(8)}` + `${DOR.charAt(9)}`
-            var mmr = `${DOR.charAt(3)}` + `${DOR.charAt(4)}`
-            var ddr = `${DOR.charAt(0)}` + `${DOR.charAt(1)}`
-            var DOR_format = new Date(yyyyr + '-' + mmr + '-' + ddr)
-            var dif = (date_format - DOR_format) / (1000 * 60 * 60 * 24)
-            var penalty = dif * 0.5
-            if (yyyy > yyyyr) {
-                document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
-            }
-            else if (mm > mmr) {
-                document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
-            }
-            else if (dd > ddr) {
-                document.getElementById("penalty").innerHTML = 'The student has a fine AED ' + penalty
-            }
+
         }
 
     }
