@@ -1,211 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>index</title>
-        <link href="./css/stylesheet.css" rel="stylesheet" />
-        <link
-            href="https://fonts.googleapis.com/css?family=Nunito Sans"
-            rel="stylesheet"
-        />
-        <link rel="icon" href="./src/favicon.png" />
 
-        <style>
-            body {
-                background-image: url("./src/bg.png");
-            }
-        </style>
-    </head>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>index</title>
+    <link href="./css/stylesheet.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Nunito Sans" rel="stylesheet" />
+    <link rel="icon" href="./src/favicon.png" />
 
-    <body onload="displaydate()">
-        <div id="info">
-            <a
-                href="https://github.com/Faizaan-Nasir/Library#readme"
-                id="info-link"
-                >&#8505;</a
-            >
-        </div>
-        <div class="image1"><img src="./src/image 1.png" class="img" /></div>
-        <div class="heading">School Library Issuing System</div>
+    <style>
+        body {
+            background-image: url("./src/bg.png");
+        }
+    </style>
+</head>
 
-        <!-- search -->
-        <div class="search_bar">
-            <textarea
-                id="search"
-                placeholder="Search for Students and Books"
-                class="search"
-            ></textarea>
-            <button onclick="search()" class="s-btn">
-                <img src="./src/search.png" class="s-btn-img" />
-            </button>
-        </div>
-        <script src="./scripts/app.js"></script>
-        <main>
-            <form
-                action="https://sheetdb.io/api/v1/qpwk686wb4g5z"
-                id="sheetdb-form"
-            >
-                <br /><br /><br />
+<body onload="displaydate()">
+    <div id="info">
+        <a href="https://github.com/Faizaan-Nasir/Library#readme" id="info-link">&#8505;</a>
+    </div>
+    <div class="image1"><img src="./src/image 1.png" class="img" /></div>
+    <div class="heading">School Library Issuing System</div>
 
-                <!-- labels and fields -->
-                <table style="margin-bottom: 30px">
-                    <tr>
-                        <td>
-                            Student ID Number:
-                            <span style="color: red">* </span>
-                        </td>
-                        <td>
-                            Name of Student: <span style="color: red">* </span>
-                        </td>
-                        <td>Book Issued: <span style="color: red">* </span></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <textarea
-                                id="sno"
-                                placeholder="Enter SNo."
-                                class="textarea"
-                                required
-                                name="data[sno]"
-                            ></textarea>
-                        </td>
-                        <td>
-                            <textarea
-                                id="name"
-                                placeholder="Enter Name"
-                                class="textarea"
-                                required
-                                name="data[name]"
-                            ></textarea>
-                        </td>
-                        <td>
-                            <textarea
-                                id="book_issued"
-                                placeholder="Book Issued"
-                                class="textarea"
-                                required
-                                name="data[book_issued]"
-                            ></textarea>
-                        </td>
-                        <td>
-                            <button type="reset">CLEAR DATA</button>
-                        </td>
-                    </tr>
-                </table>
-                <table>
-                    <tr>
-                        <td>Date of Issue:</td>
-                        <td>
-                            Date of Return: <span style="color: red">* </span>
-                        </td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <textarea
-                                id="date_of_issue"
-                                cols="16"
-                                rows="1"
-                                placeholder="dd/mm/yyyy"
-                                class="textarea"
-                                name="data[date_of_issue]"
-                            ></textarea>
-                        </td>
-                        <td>
-                            <textarea
-                                id="date_of_return"
-                                cols="16"
-                                rows="1"
-                                placeholder="dd/mm/yyyy"
-                                class="textarea"
-                                required
-                                name="data[date_of_return]"
-                            ></textarea>
-                        </td>
-                        <td>
-                            <button type="submit" class="submit">
-                                SUBMIT DATA
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" onclick="convert()">
-                                FETCH DATA
-                            </button>
-                        </td>
-                    </tr>
-                </table>
+    <!-- search -->
+    <div class="search_bar">
+        <textarea id="search" placeholder="Search for Students and Books" class="search"></textarea>
+        <button onclick="search()" class="s-btn">
+            <img src="./src/search.png" class="s-btn-img" />
+        </button>
+    </div>
 
-                <div id="verified" class="verified"></div>
-                <div id="penalty" class="penalty"></div>
-                <br />
-                <br />
-            </form>
-        </main>
-        <div class="error">
-            This page is not compatible on your device. (Try keeping the device
-            horizontally) <br />
-            Sorry for the inconvinience...
-        </div>
-        <script>
-            var form = document.getElementById("sheetdb-form");
-            form.addEventListener("submit", (e) => {
-                e.preventDefault();
-                fetch(form.action, {
-                    method: "POST",
-                    body: new FormData(document.getElementById("sheetdb-form")),
-                })
-                    .then((response) => response.json())
-                    .then((html) => {
-                        document.getElementById("verified").innerHTML =
-                            "Data Submitted Successfully";
-                    });
-            });
+    <main>
+        <form action="https://sheetdb.io/api/v1/qpwk686wb4g5z" id="sheetdb-form">
+            <br /><br /><br />
 
-            form.addEventListener("reset", (e) => {
-                e.preventDefault();
-                const api_url = "https://sheetdb.io/api/v1/qpwk686wb4g5z";
-                async function getData() {
-                    const response = await fetch(api_url);
-                    const data = await response.json();
-                    let sno = document.getElementById("sno").value;
-                    let name = document.getElementById("name").value;
-                    for (var i = 0; i < data.length; ++i) {
-                        if (data[i]["sno"] === `${sno}`) {
-                            console.log(data[i]["book_issued"]);
-                            console.log(sno);
-                            let update_url = `https://sheetdb.io/api/v1/qpwk686wb4g5z/sno/${sno}`;
-                            fetch(update_url, {
-                                method: "PUT",
-                                body: JSON.stringify({
-                                    data: [
-                                        {
-                                            name: name,
-                                            book_issued: "",
-                                            date_of_issue: "",
-                                            date_of_return: "",
-                                        },
-                                    ],
-                                }),
-                                headers: {
-                                    "Content-Type": "application/json",
-                                },
-                            })
-                                .then((response) => response.json())
-                                .then((html) => {
-                                    document.getElementById(
-                                        "verified"
-                                    ).innerHTML = "Data Erased Successfully";
-                                })
-                                .catch((err) => alert("Error occured"));
-                        }
-                    }
-                }
-                getData();
-            });
-        </script>
-    </body>
+            <!-- labels and fields -->
+            <table style="margin-bottom: 30px">
+                <tr>
+                    <td>
+                        Student ID Number:
+                        <span style="color: red">* </span>
+                    </td>
+                    <td>
+                        Name of Student: <span style="color: red">* </span>
+                    </td>
+                    <td>Book Issued: <span style="color: red">* </span></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea id="sno" placeholder="Enter SNo." class="textarea" required
+                            name="data[sno]"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="name" placeholder="Enter Name" class="textarea" required
+                            name="data[name]"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="book_issued" placeholder="Book Issued" class="textarea" required
+                            name="data[book_issued]"></textarea>
+                    </td>
+                    <td>
+                        <button type="reset">CLEAR DATA</button>
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr>
+                    <td>Date of Issue:</td>
+                    <td>
+                        Date of Return: <span style="color: red">* </span>
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <textarea id="date_of_issue" cols="16" rows="1" placeholder="dd/mm/yyyy" class="textarea"
+                            name="data[date_of_issue]"></textarea>
+                    </td>
+                    <td>
+                        <textarea id="date_of_return" cols="16" rows="1" placeholder="dd/mm/yyyy" class="textarea"
+                            required name="data[date_of_return]"></textarea>
+                    </td>
+                    <td>
+                        <button type="submit" class="submit">
+                            SUBMIT DATA
+                        </button>
+                    </td>
+                    <td>
+                        <button type="button" onclick="convert()">
+                            FETCH DATA
+                        </button>
+                    </td>
+                </tr>
+            </table>
+
+            <div id="verified" class="verified"></div>
+            <div id="penalty" class="penalty"></div>
+            <br />
+            <br />
+        </form>
+    </main>
+    <div class="error">
+        This page is not compatible on your device. (Try keeping the device
+        horizontally) <br />
+        Sorry for the inconvinience...
+    </div>
+    <script src="./scripts/app.js"></script>
+</body>
+
 </html>
