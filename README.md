@@ -35,3 +35,4 @@ How to Manipulate Data
 ## From a technical perspective:
 - I have just discovered how to work with databases and thus the code might just be very inefficient. 
 - This is based on my school's library management system and may vary from place to place. 
+- The webpage has been completely disabled for use on mobile phones.
