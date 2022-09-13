@@ -142,6 +142,7 @@ form.addEventListener("submit", (e) => {
         }
         // checks if the sno entered exists in database or not if it does, then update, else add a new row
         if (present == true) {
+            document.getElementById("verified").innerHTML = ""
             let update_url = `https://sheetdb.io/api/v1/qpwk686wb4g5z/sno/${sno}`;
             fetch(update_url, {
                 method: "PUT",
@@ -168,6 +169,7 @@ form.addEventListener("submit", (e) => {
 
         }
         else {
+            document.getElementById("verified").innerHTML = ""
             fetch(form.action, {
                 method: "POST",
                 body: new FormData(document.getElementById("sheetdb-form")),
