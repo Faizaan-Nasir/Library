@@ -19,8 +19,12 @@ function displaydate() {
 
 // search bar (requests for data)
 function search() {
+    document.getElementById("penalty").innerHTML = ""
+    document.getElementById("name").innerHTML = ""
+    document.getElementById("book_issued").innerHTML = ""
+    document.getElementById("date_of_return").innerHTML = ""
     let s = document.getElementById("search").value
-    const api_url = "https://sheetdb.io/api/v1/qpwk686wb4g5z"
+    const api_url = "https://sheetdb.io/api/v1/4ox3r7ibf6pr3"
     // declaring a to check if data exists or not
     let a = 'undefined'
     async function getData() {
@@ -40,31 +44,29 @@ function search() {
                 document.getElementById("date_of_issue").innerHTML = lib['date_of_issue']
                 document.getElementById("date_of_return").innerHTML = lib['date_of_return']
                 var DOR = data[i]["date_of_return"]
-                if (DOR.charAt(9) == "") {
-                    document.getElementById("verified").innerHTML = "The date of return entered is in wrong format."
+                var yyyyr = `${DOR.charAt(6)}` + `${DOR.charAt(7)}` + `${DOR.charAt(8)}` + `${DOR.charAt(9)}`
+                var mmr = `${DOR.charAt(3)}` + `${DOR.charAt(4)}`
+                var ddr = `${DOR.charAt(0)}` + `${DOR.charAt(1)}`
+                var DOR_format = new Date(yyyyr + '-' + mmr + '-' + ddr)
+                var dif = (date_format - DOR_format) / (1000 * 60 * 60 * 24)
+                var penalty = dif * 0.5
+                if (DOR == "") {
+                    document.getElementById("penalty").innerHTML = ""
+                }
+                else if (yyyy > yyyyr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
+                }
+                else if (mm > mmr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
+                }
+                else if (dd > ddr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine AED ' + penalty
                 }
                 else {
-                    var yyyyr = `${DOR.charAt(6)}` + `${DOR.charAt(7)}` + `${DOR.charAt(8)}` + `${DOR.charAt(9)}`
-                    var mmr = `${DOR.charAt(3)}` + `${DOR.charAt(4)}`
-                    var ddr = `${DOR.charAt(0)}` + `${DOR.charAt(1)}`
-                    var DOR_format = new Date(yyyyr + '-' + mmr + '-' + ddr)
-                    var dif = (date_format - DOR_format) / (1000 * 60 * 60 * 24)
-                    var penalty = dif * 0.5
-                    if (DOR == "") {
-                        document.getElementById("penalty").innerHTML = ""
-                    }
-                    else if (yyyy > yyyyr) {
-                        document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
-                    }
-                    else if (mm > mmr) {
-                        document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
-                    }
-                    else if (dd > ddr) {
-                        document.getElementById("penalty").innerHTML = 'The student has a fine AED ' + penalty
-                    }
-                    else {
-                        document.getElementById("penalty").innerHTML = ""
-                    }
+                    document.getElementById("penalty").innerHTML = ""
+                }
+                if (lib['date_of_issue'] == "") {
+                    document.getElementById("date_of_issue").innerHTML = date
                 }
             }
             else if (lib['name'] === `${s}`) {
@@ -75,31 +77,29 @@ function search() {
                 document.getElementById("date_of_issue").innerHTML = lib['date_of_issue']
                 document.getElementById("date_of_return").innerHTML = lib['date_of_return']
                 var DOR = data[i]["date_of_return"]
-                if (DOR.charAt(9) == "") {
-                    document.getElementById("verified").innerHTML = "The date of return entered is in wrong format."
+                var yyyyr = `${DOR.charAt(6)}` + `${DOR.charAt(7)}` + `${DOR.charAt(8)}` + `${DOR.charAt(9)}`
+                var mmr = `${DOR.charAt(3)}` + `${DOR.charAt(4)}`
+                var ddr = `${DOR.charAt(0)}` + `${DOR.charAt(1)}`
+                var DOR_format = new Date(yyyyr + '-' + mmr + '-' + ddr)
+                var dif = (date_format - DOR_format) / (1000 * 60 * 60 * 24)
+                var penalty = dif * 0.5
+                if (DOR == "") {
+                    document.getElementById("penalty").innerHTML = ""
+                }
+                else if (yyyy > yyyyr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
+                }
+                else if (mm > mmr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
+                }
+                else if (dd > ddr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine AED ' + penalty
                 }
                 else {
-                    var yyyyr = `${DOR.charAt(6)}` + `${DOR.charAt(7)}` + `${DOR.charAt(8)}` + `${DOR.charAt(9)}`
-                    var mmr = `${DOR.charAt(3)}` + `${DOR.charAt(4)}`
-                    var ddr = `${DOR.charAt(0)}` + `${DOR.charAt(1)}`
-                    var DOR_format = new Date(yyyyr + '-' + mmr + '-' + ddr)
-                    var dif = (date_format - DOR_format) / (1000 * 60 * 60 * 24)
-                    var penalty = dif * 0.5
-                    if (DOR == "") {
-                        document.getElementById("penalty").innerHTML = ""
-                    }
-                    else if (yyyy > yyyyr) {
-                        document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
-                    }
-                    else if (mm > mmr) {
-                        document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
-                    }
-                    else if (dd > ddr) {
-                        document.getElementById("penalty").innerHTML = 'The student has a fine AED ' + penalty
-                    }
-                    else {
-                        document.getElementById("penalty").innerHTML = ""
-                    }
+                    document.getElementById("penalty").innerHTML = ""
+                }
+                if (lib['date_of_issue'] == "") {
+                    document.getElementById("date_of_issue").innerHTML = date
                 }
             }
             else if (lib['book_issued'] === `${s}`) {
@@ -110,31 +110,29 @@ function search() {
                 document.getElementById("date_of_issue").innerHTML = lib['date_of_issue']
                 document.getElementById("date_of_return").innerHTML = lib['date_of_return']
                 var DOR = data[i]["date_of_return"]
-                if (DOR.charAt(9) == "") {
-                    document.getElementById("verified").innerHTML = "The date of return entered is in wrong format."
+                var yyyyr = `${DOR.charAt(6)}` + `${DOR.charAt(7)}` + `${DOR.charAt(8)}` + `${DOR.charAt(9)}`
+                var mmr = `${DOR.charAt(3)}` + `${DOR.charAt(4)}`
+                var ddr = `${DOR.charAt(0)}` + `${DOR.charAt(1)}`
+                var DOR_format = new Date(yyyyr + '-' + mmr + '-' + ddr)
+                var dif = (date_format - DOR_format) / (1000 * 60 * 60 * 24)
+                var penalty = dif * 0.5
+                if (DOR == "") {
+                    document.getElementById("penalty").innerHTML = ""
+                }
+                else if (yyyy > yyyyr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
+                }
+                else if (mm > mmr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
+                }
+                else if (dd > ddr) {
+                    document.getElementById("penalty").innerHTML = 'The student has a fine AED ' + penalty
                 }
                 else {
-                    var yyyyr = `${DOR.charAt(6)}` + `${DOR.charAt(7)}` + `${DOR.charAt(8)}` + `${DOR.charAt(9)}`
-                    var mmr = `${DOR.charAt(3)}` + `${DOR.charAt(4)}`
-                    var ddr = `${DOR.charAt(0)}` + `${DOR.charAt(1)}`
-                    var DOR_format = new Date(yyyyr + '-' + mmr + '-' + ddr)
-                    var dif = (date_format - DOR_format) / (1000 * 60 * 60 * 24)
-                    var penalty = dif * 0.5
-                    if (DOR == "") {
-                        document.getElementById("penalty").innerHTML = ""
-                    }
-                    else if (yyyy > yyyyr) {
-                        document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
-                    }
-                    else if (mm > mmr) {
-                        document.getElementById("penalty").innerHTML = 'The student has a fine of AED ' + penalty
-                    }
-                    else if (dd > ddr) {
-                        document.getElementById("penalty").innerHTML = 'The student has a fine AED ' + penalty
-                    }
-                    else {
-                        document.getElementById("penalty").innerHTML = ""
-                    }
+                    document.getElementById("penalty").innerHTML = ""
+                }
+                if (lib['date_of_issue'] == "") {
+                    document.getElementById("date_of_issue").innerHTML = date
                 }
             }
         }
@@ -153,7 +151,7 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     async function getData() {
         document.getElementById("verified").innerHTML = ""
-        const api_url = "https://sheetdb.io/api/v1/qpwk686wb4g5z"
+        const api_url = "https://sheetdb.io/api/v1/4ox3r7ibf6pr3"
         const response = await fetch(api_url)
         const data = await response.json()
         let sno = document.getElementById("sno").value
@@ -166,39 +164,44 @@ form.addEventListener("submit", (e) => {
         }
         // checks if the sno entered exists in database or not if it does, then update, else add a new row
         if (present == true) {
-            document.getElementById("verified").innerHTML = ""
-            let update_url = `https://sheetdb.io/api/v1/qpwk686wb4g5z/sno/${sno}`;
-            fetch(update_url, {
-                method: "PUT",
-                body: JSON.stringify({
-                    data: [
-                        {
-                            book_issued: document.getElementById("book_issued").value,
-                            date_of_issue: document.getElementById("date_of_issue").value,
-                            date_of_return: document.getElementById("date_of_return").value,
-                        },
-                    ],
-                }),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            })
-                .then((response) => response.json())
-                .then((html) => {
-                    document.getElementById("search").innerHTML = `${sno}`
-                    search()
-                    setTimeout(function res() {
-                        document.getElementById(
-                            "verified"
-                        ).innerHTML = "Data Updated Successfully";
-                    }, 2000)
+            let DOR = document.getElementById("date_of_return").value
+            if (DOR.charAt(9) == "") {
+                document.getElementById("verified").innerHTML = "The date of return entered is in wrong format."
+            }
+            else {
+                document.getElementById("verified").innerHTML = ""
+                let update_url = `https://sheetdb.io/api/v1/4ox3r7ibf6pr3/sno/${sno}`;
+                fetch(update_url, {
+                    method: "PUT",
+                    body: JSON.stringify({
+                        data: [
+                            {
+                                book_issued: document.getElementById("book_issued").value,
+                                date_of_issue: document.getElementById("date_of_issue").value,
+                                date_of_return: document.getElementById("date_of_return").value,
+                            },
+                        ],
+                    }),
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
                 })
-                .catch((err) => alert("Error occured, contact the devs through GitHub."));
-
+                    .then((response) => response.json())
+                    .then((html) => {
+                        document.getElementById("search").innerHTML = `${sno}`
+                        search()
+                        setTimeout(function res() {
+                            document.getElementById(
+                                "verified"
+                            ).innerHTML = "Data Updated Successfully";
+                        }, 2000)
+                    })
+                    .catch((err) => alert("Error occured, contact the devs through GitHub."));
+            }
         }
         else {
-            let name1 = String(document.getElementById("name").value)
-            if (name1 == "undefined") {
+            let name1 = document.getElementById("name").value
+            if (name1 == "") {
                 document.getElementById("verified").innerHTML = "Name is a conditional necessary field. Data Not Submitted."
             }
             else {
@@ -210,12 +213,12 @@ form.addEventListener("submit", (e) => {
                     .then((response) => response.json())
                     .then((html) => {
                         document.getElementById("search").innerHTML = `${sno}`
-                        search()
                         setTimeout(function res() {
                             document.getElementById(
                                 "verified"
                             ).innerHTML = "Data Submitted Successfully";
                         }, 2000)
+                        convert()
                     });
             }
         }
@@ -227,7 +230,7 @@ form.addEventListener("submit", (e) => {
 form.addEventListener("reset", (e) => {
     e.preventDefault();
     // actual reset starts here
-    const api_url = "https://sheetdb.io/api/v1/qpwk686wb4g5z";
+    const api_url = "https://sheetdb.io/api/v1/4ox3r7ibf6pr3";
     async function reset() {
         const response = await fetch(api_url);
         const data = await response.json();
@@ -238,7 +241,7 @@ form.addEventListener("reset", (e) => {
             if (data[i]["sno"] === `${sno}`) {
                 console.log(data[i]["book_issued"]);
                 console.log(sno);
-                let update_url = `https://sheetdb.io/api/v1/qpwk686wb4g5z/sno/${sno}`;
+                let update_url = `https://sheetdb.io/api/v1/4ox3r7ibf6pr3/sno/${sno}`;
                 fetch(update_url, {
                     method: "PUT",
                     body: JSON.stringify({
@@ -260,9 +263,9 @@ form.addEventListener("reset", (e) => {
                         document.getElementById("date_of_return").innerHTML = ""
                         document.getElementById("book_issued").innerHTML = ""
                         setTimeout(function res() {
-
                             document.getElementById("verified").innerHTML = "Data Erased Successfully";
                         }, 2000)
+                        convert()
                     })
                     .catch((err) => alert("Error occured"));
             }

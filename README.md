@@ -1,4 +1,4 @@
-# Library (WEBPAGE OUT OF ACTION TILL 01/10/2022)
+# Library
 ## This is a webpage meant for book libraries which stores information of which book is taken by which student in a given school.
 ## This is how the webpage looks as of now:
 ![image](https://user-images.githubusercontent.com/82143161/190234532-4ef87ff7-744a-40e8-a11d-6c3249c863bc.png)
