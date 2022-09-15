@@ -1,6 +1,7 @@
 // when fetch data is pressed
 function convert() {
-    document.getElementById("search").innerHTML = document.getElementById("sno").value
+    document.getElementById("search").value = document.getElementById("sno").value
+    document.getElementById("search").innerHTML = document.getElementById("search").value
     search()
 }
 
@@ -38,7 +39,8 @@ function search() {
             // if it does then print it, and store value of i to a
             if (lib['sno'] === `${s}`) {
                 a = i
-                document.getElementById("sno").innerHTML = lib['sno']
+                document.getElementById("sno").value = `${s}`
+                document.getElementById("sno").innerHTML = document.getElementById("sno").value
                 document.getElementById("name").innerHTML = lib['name']
                 document.getElementById("book_issued").innerHTML = lib['book_issued']
                 document.getElementById("date_of_issue").innerHTML = lib['date_of_issue']
@@ -72,7 +74,8 @@ function search() {
             else if (lib['name'] === `${s}`) {
                 a = i
                 document.getElementById("sno").innerHTML = lib['sno']
-                document.getElementById("name").innerHTML = lib['name']
+                document.getElementById("name").value = `${s}`
+                document.getElementById("name").innerHTML = document.getElementById("name").value
                 document.getElementById("book_issued").innerHTML = lib['book_issued']
                 document.getElementById("date_of_issue").innerHTML = lib['date_of_issue']
                 document.getElementById("date_of_return").innerHTML = lib['date_of_return']
@@ -106,7 +109,8 @@ function search() {
                 a = i
                 document.getElementById("sno").innerHTML = lib['sno']
                 document.getElementById("name").innerHTML = lib['name']
-                document.getElementById("book_issued").innerHTML = lib['book_issued']
+                document.getElementById("book_issued").value = `${s}`
+                document.getElementById("book_issued").innerHTML = document.getElementById("book_issued").value
                 document.getElementById("date_of_issue").innerHTML = lib['date_of_issue']
                 document.getElementById("date_of_return").innerHTML = lib['date_of_return']
                 var DOR = data[i]["date_of_return"]
@@ -188,12 +192,12 @@ form.addEventListener("submit", (e) => {
                 })
                     .then((response) => response.json())
                     .then((html) => {
-                        document.getElementById("search").innerHTML = `${sno}`
-                        search()
                         setTimeout(function res() {
                             document.getElementById(
                                 "verified"
                             ).innerHTML = "Data Updated Successfully";
+                            document.getElementById("search").innerHTML = `${sno}`
+                            convert()
                         }, 2000)
                     })
                     .catch((err) => alert("Error occured, contact the devs through GitHub."));
