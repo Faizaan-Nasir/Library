@@ -42,8 +42,10 @@ function search() {
                 document.getElementById("sno").value = `${s}`
                 document.getElementById("sno").innerHTML = document.getElementById("sno").value
                 document.getElementById("name").innerHTML = lib['name']
+                document.getElementById("book_issued").value = lib['book_issued']
                 document.getElementById("book_issued").innerHTML = lib['book_issued']
                 document.getElementById("date_of_issue").innerHTML = lib['date_of_issue']
+                document.getElementById("date_of_return").value = lib['date_of_return']
                 document.getElementById("date_of_return").innerHTML = lib['date_of_return']
                 var DOR = data[i]["date_of_return"]
                 var yyyyr = `${DOR.charAt(6)}` + `${DOR.charAt(7)}` + `${DOR.charAt(8)}` + `${DOR.charAt(9)}`
@@ -196,8 +198,6 @@ form.addEventListener("submit", (e) => {
                             document.getElementById(
                                 "verified"
                             ).innerHTML = "Data Updated Successfully";
-                            document.getElementById("book_issued").value = ""
-                            document.getElementById("date_of_issue").value = ""
                             document.getElementById("search").innerHTML = `${sno}`
                             convert()
                         }, 2000)
