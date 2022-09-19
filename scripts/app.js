@@ -20,10 +20,6 @@ function displaydate() {
 
 // search bar (requests for data)
 function search() {
-    document.getElementById("book_issued").value = ""
-    document.getElementById("book_issued").innerHTML = document.getElementById("book_issued").value
-    document.getElementById("date_of_issue").value = ""
-    document.getElementById("date_of_issue").innerHTML = document.getElementById("date_os_issue").value
     document.getElementById("penalty").innerHTML = ""
     document.getElementById("name").innerHTML = ""
     document.getElementById("book_issued").innerHTML = ""
@@ -200,6 +196,8 @@ form.addEventListener("submit", (e) => {
                             document.getElementById(
                                 "verified"
                             ).innerHTML = "Data Updated Successfully";
+                            document.getElementById("book_issued").value = ""
+                            document.getElementById("date_of_issue").value = ""
                             document.getElementById("search").innerHTML = `${sno}`
                             convert()
                         }, 2000)
