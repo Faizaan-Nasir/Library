@@ -220,9 +220,7 @@ form.addEventListener("submit", (e) => {
                     .then((html) => {
                         document.getElementById("search").innerHTML = `${sno}`
                         setTimeout(function res() {
-                            document.getElementById(
-                                "verified"
-                            ).innerHTML = "Data Submitted Successfully";
+                            document.getElementById("verified").innerHTML = "Data Submitted Successfully";
                         }, 2000)
                         convert()
                     });
